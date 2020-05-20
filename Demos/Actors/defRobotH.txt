@@ -1,0 +1,32 @@
+pied droit: node_0.
+genou droit: node_12.
+rotule droite: node_17.
+jambe droite: node_22.
+cuisse droite: node_28.
+hanche droite: node_34.
+
+pied gauche: node_6.
+rotule g: node_45.
+jambe g: node_50.
+cuisse g: node_56.
+hanche g: node_62.
+genou g: node_67.
+
+avant-bras d: node_88.
+coude d: node_78.
+bras d: node_94.
+joint main d: node_83.
+epaule d: node_100.
+
+avant-bras g: node_110.
+coude g: node_127.
+bras g: node_116.
+joint main g: node_105.
+epaule g: node_122.
+
+bassin: node_39.
+corp: node_72.
+colonne: node_144.
+
+cou: node_132.
+tete: node_138.

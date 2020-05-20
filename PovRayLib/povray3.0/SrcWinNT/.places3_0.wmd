@@ -1,0 +1,2 @@
+Places = "7 4 25 0 3 10 pvbitmap.c5 3 10 ulztimer.c1 0 10 pvbitmap.h5 2 8 pvtips.h1 2 7 pvbmp.h0 2 9 guidemo.c0 0 8 config.h5 0 8 pvtext.c3 1 10 pvengine.h5 1 8 pvtiny.c3 2 9 pvfiles.c2 3 10 pvdialog.h2 2 10 pvdialog.c4 0 10 pvguiext.h1 3 10 pvclient.c6 0 8 ztimer.h2 1 8 pvdemo.h2 0 10 pvclient.h3 3 10 pvguiext.c4 2 8 pvmenu.c4 1 9 pvlegal.h4 3 8 pvmisc.c0 1 7 debug.h3 0 10 pvengine.c1 1 7 pvbmp.c";
+ManualPositions = YES;

@@ -1,0 +1,8 @@
+These project files for VC were contributed by a user and have not been tested
+by the POV-Team.
+
+Notes for VC++ 5.0 compile
+
+Open up the project by opening povray.dsw.  Set your active project as povray 
+and build.
+

@@ -1,0 +1,24 @@
+#/************************************************
+#* File: makefile.
+#* Desc: Building definitions for the vrml extension package of PovRay.
+#************************************************/
+
+PROJECT=PovVrExt
+include $(AKRAPROJ)/geneMake.lnx
+
+
+CPPSRCS= parseVrml.cpp povScene.cpp mapOperators.cpp renderContext.cpp \
+	maths.cpp pObject.cpp
+
+INC+= -I$(AKRAHOME)/Projets/PovRayLib/povray -I$(AKRAHOME)/Projets/Traducteurs/include
+
+#LIBS= -lvrml
+
+all: $(STATNAMELIB)
+
+$(STATNAMELIB): $(OBJS)
+	( cd $(OBJ_PATH) && \
+	    $(AR) cru $@ $(OBJS) && \
+	    $(RANLIB) $@ \
+	)
+

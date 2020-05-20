@@ -1,0 +1,52 @@
+Fichier povray.c, debut du main:
+
+    pre_init_povray {
+	mem_init();
+	Peut-etre {
+	    Init_Text_Streams();
+	    init_shellouts();
+	}
+    }
+    init_vars();
+    Peut-etre {
+	READ_ENV_VAR : lit la var d'env. POVINI (path/povini.ini)
+	PROCESS_POVRAY_INI: lit le fichier povini ou .povrayrc.
+    }
+    fix_up_scene_name => strcpy(opts.Scene_Name, unNom);
+    Peut-Etre {
+	Open_Text_Streams();
+    }
+    fix_up_animation_values();
+    fix_up_rendering_window();
+    set_output_file_handle(); : ouvre le fichier de sortie (image).
+    Initialize_Noise(); : doit etre fait qu'une seule fois.
+    Diff_Clock= 0;
+    Diff_Frame = opts.FrameSeq.FinalFrame - opts.FrameSeq.InitialFrame;
+
+
+Production d'une image:
+    setup_output_file_name() : construit le nom de sortie complet.
+    FrameRender(); : fait le travail de parsing/rendering.
+
+
+ Pour quitter:
+    Terminate_POV(0);
+
+
+void FrameRender(), Fait:
+    - initialisations generales,
+    - le Parse[Vrml],
+    - les inits d'objets graphiques,
+    - le  octree,
+    - le vista buffer,
+    - la sauvegarde du setup,
+    - l'ouverture du fichier de sortie,
+    - Initialize_Renderer,
+    - pov_pre_render, config_math,
+    - ray-tracing (adaptative ou normal),
+    - fermeture du fichier de sortie,
+    - destruction de plusieurs bebelles.
+	
+Les streams de sortie:
+debug, fatal, render, statistic, warning, all.
+

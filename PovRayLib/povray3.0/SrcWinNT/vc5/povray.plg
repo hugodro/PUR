@@ -1,0 +1,102 @@
+--------------------Configuration: povray - Win32 Debug--------------------
+Begining build with project "O:\AkraLog\Projets\PovRayLib\povray\SrcWinNT\vc5\povray.dsp", at root.
+Active configuration is Win32 (x86) Application (based on Win32 (x86) Application)
+
+Project's tools are:
+			"32-bit C/C++ Compiler for 80x86" with flags "/nologo /MDd /W3 /Gm /GX /Zi /Od /I "../.." /I "../../zlib" /I ".." /I "../../libpng" /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "USE_VRML" /Fo"Debug/" /Fd"Debug/" /FD /c "
+			"OLE Type Library Maker" with flags "/nologo /D "_DEBUG" /mktyplib203 /o NUL /win32 "
+			"Win32 Resource Compiler" with flags "/l 0x409 /fo"Debug/PVENGINE.res" /d "_DEBUG" "
+			"Browser Database Maker" with flags "/nologo /o"bin/povray.bsc" "
+			"COFF Linker for 80x86" with flags "bin\vrmlin.lib bin\vrmlExt.lib comctl32.lib bin\libpng.lib bin\zlib.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /nologo /subsystem:windows /incremental:yes /pdb:"bin/pvengine.pdb" /debug /machine:I386 /out:"Debug/pvengine.exe" /pdbtype:sept "
+			"Custom Build" with flags ""
+			"<Component 0xa>" with flags ""
+
+Creating temp file "C:\TEMP\RSP46.tmp" with contents <bin\vrmlin.lib bin\vrmlExt.lib comctl32.lib bin\libpng.lib bin\zlib.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /nologo /subsystem:windows /incremental:yes /pdb:"bin/pvengine.pdb" /debug /machine:I386 /out:"Debug/pvengine.exe" /pdbtype:sept 
+.\Debug\ATMOSPH.OBJ
+.\Debug\BBOX.OBJ
+.\Debug\BCYL.OBJ
+.\Debug\BEZIER.OBJ
+.\Debug\BLOB.OBJ
+.\Debug\BOXES.OBJ
+.\Debug\BSPHERE.OBJ
+.\Debug\CAMERA.OBJ
+.\Debug\CHI2.OBJ
+.\Debug\COLOUR.OBJ
+.\Debug\CONES.OBJ
+.\Debug\CSG.OBJ
+.\Debug\DISCS.OBJ
+.\Debug\EXPRESS.OBJ
+.\Debug\FRACTAL.OBJ
+.\Debug\GIF.OBJ
+.\Debug\GIFDECOD.OBJ
+.\Debug\HALOS.OBJ
+.\Debug\HCMPLX.OBJ
+.\Debug\HFIELD.OBJ
+.\Debug\IFF.OBJ
+.\Debug\IMAGE.OBJ
+.\Debug\LATHE.OBJ
+.\Debug\LBUFFER.OBJ
+.\Debug\LIGHTING.OBJ
+.\Debug\MATRICES.OBJ
+.\Debug\MEM.OBJ
+.\Debug\MESH.OBJ
+.\Debug\NORMAL.OBJ
+.\Debug\OBJECTS.OBJ
+.\Debug\OCTREE.OBJ
+.\Debug\OPTIN.OBJ
+.\Debug\OPTOUT.OBJ
+.\Debug\PARSE.OBJ
+.\Debug\PARSTXTR.OBJ
+.\Debug\PATTERN.OBJ
+.\Debug\PGM.OBJ
+.\Debug\PIGMENT.OBJ
+.\Debug\PLANES.OBJ
+.\Debug\PNG_POV.OBJ
+.\Debug\POINT.OBJ
+.\Debug\POLY.OBJ
+.\Debug\POLYGON.OBJ
+.\Debug\POLYSOLV.OBJ
+.\Debug\POVRAY.OBJ
+.\Debug\PPM.OBJ
+.\Debug\PRISM.OBJ
+.\Debug\PVBITMAP.OBJ
+.\Debug\PVBMP.OBJ
+.\Debug\PVCLIENT.OBJ
+.\Debug\PVDIALOG.OBJ
+.\Debug\PVENGINE.OBJ
+.\Debug\PVFILES.OBJ
+.\Debug\PVGUIEXT.OBJ
+.\Debug\PVMENU.OBJ
+.\Debug\PVMISC.OBJ
+.\Debug\PVTEXT.OBJ
+.\Debug\PVTINY.OBJ
+.\Debug\QUADRICS.OBJ
+.\Debug\QUATERN.OBJ
+.\Debug\RAD_DATA.OBJ
+.\Debug\RADIOSIT.OBJ
+.\Debug\RAY.OBJ
+.\Debug\RENDER.OBJ
+.\Debug\SOR.OBJ
+.\Debug\SPHERES.OBJ
+.\Debug\SUPER.OBJ
+.\Debug\TARGA.OBJ
+.\Debug\TEXTURE.OBJ
+.\Debug\TOKENIZE.OBJ
+.\Debug\TORUS.OBJ
+.\Debug\TRIANGLE.OBJ
+.\Debug\TRUETYPE.OBJ
+.\Debug\TXTTEST.OBJ
+.\Debug\USERIO.OBJ
+.\Debug\VBUFFER.OBJ
+.\Debug\VLBUFFER.OBJ
+.\Debug\WARPS.OBJ
+.\Debug\PVENGINE.res
+.\bin\zlib.lib>
+Creating command line "link.exe @C:\TEMP\RSP46.tmp" 
+Linking...
+LINK : LNK6004: Debug/pvengine.exe not found or not built by the last incremental link; performing full link
+   Creating library Debug/pvengine.lib and object Debug/pvengine.exp
+
+
+
+pvengine.exe - 0 error(s), 0 warning(s)

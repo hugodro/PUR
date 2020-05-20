@@ -1,0 +1,19 @@
+;------------------------------------------------
+;   Project pvengine
+;
+;   Copyright © 1996-1997 POV-Team. All Rights Reserved.
+;
+;   SUBSYSTEM:    pvengine.exe Module Definition File
+;   FILE:         pvengine.def
+;   AUTHOR:       Chris Cason
+;
+;------------------------------------------------
+
+NAME pvengine
+DESCRIPTION 'POV-Ray(tm) for Windows - Copyright © 1996-1997 POV-Team. All Rights Reserved.'
+EXETYPE     WINDOWS
+CODE        PRELOAD MOVEABLE DISCARDABLE
+DATA        PRELOAD MOVEABLE
+HEAPSIZE    1048576, 131072
+STACKSIZE   1048576, 262144
+

@@ -1,0 +1,99 @@
+--------------------Configuration: libPovRay - Win32 Debug--------------------
+Begining build with project "O:\AkraLog\Projets\PovRayLib\povray\SrcWinNT\vc5\libPovRay.dsp", at root.
+Active configuration is Win32 (x86) Static Library (based on Win32 (x86) Static Library)
+
+Project's tools are:
+			"32-bit C/C++ Compiler for 80x86" with flags "/nologo /MDd /W3 /GX /Z7 /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /Fp"Debug/libPovRay.pch" /YX /Fo"Debug/" /Fd"Debug/" /FD /c "
+			"Browser Database Maker" with flags "/nologo /o"Debug/libPovRay.bsc" "
+			"Library Manager" with flags "/nologo /out:"bin\libPovRay.lib" "
+			"Custom Build" with flags ""
+			"<Component 0xa>" with flags ""
+
+Creating temp file "C:\TEMP\RSP1C.tmp" with contents </nologo /MDd /W3 /GX /Z7 /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /Fp"Debug/libPovRay.pch" /YX /Fo"Debug/" /Fd"Debug/" /FD /c 
+"O:\AkraLog\Projets\PovRayLib\povray\POLYGON.C"
+>
+Creating command line "cl.exe @C:\TEMP\RSP1C.tmp" 
+Creating temp file "C:\TEMP\RSP1D.tmp" with contents </nologo /out:"bin\libPovRay.lib" 
+.\Debug\atmosph.obj
+.\Debug\bbox.obj
+.\Debug\bcyl.obj
+.\Debug\bezier.obj
+.\Debug\blob.obj
+.\Debug\boxes.obj
+.\Debug\bsphere.obj
+.\Debug\camera.obj
+.\Debug\chi2.obj
+.\Debug\colour.obj
+.\Debug\cones.obj
+.\Debug\csg.obj
+.\Debug\discs.obj
+.\Debug\express.obj
+.\Debug\fractal.obj
+.\Debug\gif.obj
+.\Debug\gifdecod.obj
+.\Debug\halos.obj
+.\Debug\hcmplx.obj
+.\Debug\hfield.obj
+.\Debug\iff.obj
+.\Debug\image.obj
+.\Debug\lathe.obj
+.\Debug\lbuffer.obj
+.\Debug\lighting.obj
+.\Debug\matrices.obj
+.\Debug\mem.obj
+.\Debug\mesh.obj
+.\Debug\normal.obj
+.\Debug\objects.obj
+.\Debug\octree.obj
+.\Debug\optin.obj
+.\Debug\optout.obj
+.\Debug\parse.obj
+.\Debug\parstxtr.obj
+.\Debug\pattern.obj
+.\Debug\pgm.obj
+.\Debug\pigment.obj
+.\Debug\planes.obj
+.\Debug\png_pov.obj
+.\Debug\point.obj
+.\Debug\poly.obj
+.\Debug\polygon.obj
+.\Debug\polysolv.obj
+.\Debug\povray_lib.obj
+.\Debug\ppm.obj
+.\Debug\prism.obj
+.\Debug\pvbmp.obj
+.\Debug\quadrics.obj
+.\Debug\quatern.obj
+.\Debug\rad_data.obj
+.\Debug\radiosit.obj
+.\Debug\ray.obj
+.\Debug\render.obj
+.\Debug\sor.obj
+.\Debug\spheres.obj
+.\Debug\super.obj
+.\Debug\targa.obj
+.\Debug\texture.obj
+.\Debug\tokenize.obj
+.\Debug\torus.obj
+.\Debug\triangle.obj
+.\Debug\truetype.obj
+.\Debug\txttest.obj
+.\Debug\userio.obj
+.\Debug\vbuffer.obj
+.\Debug\vlbuffer.obj
+.\Debug\warps.obj
+.\Debug\winLibSupport.obj>
+Creating command line "link.exe -lib @C:\TEMP\RSP1D.tmp" 
+Compiling...
+POLYGON.C
+O:\AkraLog\Projets\PovRayLib\povray\POLYGON.C(938) : warning C4305: '-=' : truncation from 'const double ' to 'float '
+O:\AkraLog\Projets\PovRayLib\povray\POLYGON.C(939) : warning C4305: '+=' : truncation from 'const double ' to 'float '
+O:\AkraLog\Projets\PovRayLib\povray\POLYGON.C(944) : warning C4305: '-=' : truncation from 'const double ' to 'float '
+O:\AkraLog\Projets\PovRayLib\povray\POLYGON.C(945) : warning C4305: '+=' : truncation from 'const double ' to 'float '
+O:\AkraLog\Projets\PovRayLib\povray\POLYGON.C(950) : warning C4305: '-=' : truncation from 'const double ' to 'float '
+O:\AkraLog\Projets\PovRayLib\povray\POLYGON.C(951) : warning C4305: '+=' : truncation from 'const double ' to 'float '
+Creating library...
+
+
+
+libPovRay.lib - 0 error(s), 6 warning(s)

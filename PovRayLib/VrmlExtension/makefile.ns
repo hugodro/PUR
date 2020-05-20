@@ -1,0 +1,35 @@
+#/************************************************
+#* File: makefile.
+#* Desc: Building definitions for the vrml extension package of PovRay.
+#************************************************/
+
+TARGET_SYSTEM= next_i386
+VPATH= ..
+AKRAHOME= /Users/hugo/AkraLog/Projets
+
+SRCS= parseVrml.cc povScene.cc mapOperators.cc renderContext.cc \
+	maths.cc pObject.cc
+
+OBJS= parseVrml.o povScene.o mapOperators.o renderContext.o \
+	maths.o pObject.o
+
+INC= -I$(AKRAHOME) -I$(AKRAHOME)/Plzen/Traducteurs/Vrml -I../..
+CC= cc
+CFLAGS= -g
+LIBS= -lg++ -lvrml
+
+.SUFFIXES: .cc .o
+
+
+all: libvrmlext.a
+
+libvrmlext.a: $(OBJS)
+	ar cr $@ $(OBJS)
+	ranlib $@
+
+.c.o:
+	$(CC) $(INC) $(CFLAGS) -c  $<
+
+.cc.o:
+	$(CC) $(INC) $(CFLAGS) -c  $<
+

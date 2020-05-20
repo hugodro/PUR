@@ -1,0 +1,96 @@
+--------------------Configuration: libpng - Win32 Debug--------------------
+Begining build with project "H:\AkraLog\Projets\PovRayLib\povray\SrcWinNT\vc5\libpng\libpng.dsp", at root.
+Active configuration is Win32 (x86) Static Library (based on Win32 (x86) Static Library)
+
+Project's tools are:
+			"32-bit C/C++ Compiler for 80x86" with flags "/nologo /MTd /W3 /GX /Z7 /Od /I "..\..\..\zlib" /I "..\..\.." /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "USE_VRML" /Fp"Debug/libpng.pch" /YX /Fo"Debug/" /Fd"Debug/" /FD /c "
+			"Browser Database Maker" with flags "/nologo /o"..\bin/libpng.bsc" "
+			"Library Manager" with flags "/nologo /out:"..\bin\libpng.lib" "
+			"Custom Build" with flags ""
+			"<Component 0xa>" with flags ""
+
+Creating temp file "C:\TEMP\RSP60.tmp" with contents </nologo /MTd /W3 /GX /Z7 /Od /I "..\..\..\zlib" /I "..\..\.." /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "USE_VRML" /Fp"Debug/libpng.pch" /YX /Fo"Debug/" /Fd"Debug/" /FD /c 
+"H:\AkraLog\Projets\PovRayLib\povray\LIBPNG\PNG.C"
+"H:\AkraLog\Projets\PovRayLib\povray\LIBPNG\PNGERROR.C"
+"H:\AkraLog\Projets\PovRayLib\povray\LIBPNG\PNGMEM.C"
+"H:\AkraLog\Projets\PovRayLib\povray\LIBPNG\PNGPREAD.C"
+"H:\AkraLog\Projets\PovRayLib\povray\LIBPNG\PNGRCB.C"
+"H:\AkraLog\Projets\PovRayLib\povray\LIBPNG\PNGREAD.C"
+"H:\AkraLog\Projets\PovRayLib\povray\LIBPNG\PNGRIO.C"
+"H:\AkraLog\Projets\PovRayLib\povray\LIBPNG\PNGRTRAN.C"
+"H:\AkraLog\Projets\PovRayLib\povray\LIBPNG\PNGRUTIL.C"
+"H:\AkraLog\Projets\PovRayLib\povray\LIBPNG\PNGTRANS.C"
+"H:\AkraLog\Projets\PovRayLib\povray\LIBPNG\PNGWIO.C"
+"H:\AkraLog\Projets\PovRayLib\povray\LIBPNG\PNGWRITE.C"
+"H:\AkraLog\Projets\PovRayLib\povray\LIBPNG\PNGWTRAN.C"
+"H:\AkraLog\Projets\PovRayLib\povray\LIBPNG\PNGWUTIL.C"
+>
+Creating command line "cl.exe @C:\TEMP\RSP60.tmp" 
+Creating temp file "C:\TEMP\RSP61.tmp" with contents </nologo /out:"..\bin\libpng.lib" 
+.\Debug\PNG.OBJ
+.\Debug\PNGERROR.OBJ
+.\Debug\PNGMEM.OBJ
+.\Debug\PNGPREAD.OBJ
+.\Debug\PNGRCB.OBJ
+.\Debug\PNGREAD.OBJ
+.\Debug\PNGRIO.OBJ
+.\Debug\PNGRTRAN.OBJ
+.\Debug\PNGRUTIL.OBJ
+.\Debug\PNGTRANS.OBJ
+.\Debug\PNGWIO.OBJ
+.\Debug\PNGWRITE.OBJ
+.\Debug\PNGWTRAN.OBJ
+.\Debug\PNGWUTIL.OBJ>
+Creating command line "link.exe -lib @C:\TEMP\RSP61.tmp" 
+Compiling...
+PNG.C
+PNGERROR.C
+PNGMEM.C
+PNGPREAD.C
+H:\AkraLog\Projets\PovRayLib\povray\LIBPNG\PNGPREAD.C(93) : warning C4018: '<' : signed/unsigned mismatch
+H:\AkraLog\Projets\PovRayLib\povray\LIBPNG\PNGPREAD.C(437) : warning C4018: '<' : signed/unsigned mismatch
+PNGRCB.C
+PNGREAD.C
+PNGRIO.C
+PNGRTRAN.C
+H:\AkraLog\Projets\PovRayLib\povray\LIBPNG\PNGRTRAN.C(1047) : warning C4018: '<' : signed/unsigned mismatch
+H:\AkraLog\Projets\PovRayLib\povray\LIBPNG\PNGRTRAN.C(1613) : warning C4244: '=' : conversion from 'unsigned short ' to 'unsigned char ', possible loss of data
+H:\AkraLog\Projets\PovRayLib\povray\LIBPNG\PNGRTRAN.C(1629) : warning C4244: '=' : conversion from 'unsigned short ' to 'unsigned char ', possible loss of data
+H:\AkraLog\Projets\PovRayLib\povray\LIBPNG\PNGRTRAN.C(1697) : warning C4244: '=' : conversion from 'unsigned short ' to 'unsigned char ', possible loss of data
+H:\AkraLog\Projets\PovRayLib\povray\LIBPNG\PNGRTRAN.C(1698) : warning C4244: '=' : conversion from 'unsigned short ' to 'unsigned char ', possible loss of data
+H:\AkraLog\Projets\PovRayLib\povray\LIBPNG\PNGRTRAN.C(1699) : warning C4244: '=' : conversion from 'unsigned short ' to 'unsigned char ', possible loss of data
+H:\AkraLog\Projets\PovRayLib\povray\LIBPNG\PNGRTRAN.C(1719) : warning C4244: '=' : conversion from 'unsigned short ' to 'unsigned char ', possible loss of data
+H:\AkraLog\Projets\PovRayLib\povray\LIBPNG\PNGRTRAN.C(1720) : warning C4244: '=' : conversion from 'unsigned short ' to 'unsigned char ', possible loss of data
+H:\AkraLog\Projets\PovRayLib\povray\LIBPNG\PNGRTRAN.C(1721) : warning C4244: '=' : conversion from 'unsigned short ' to 'unsigned char ', possible loss of data
+H:\AkraLog\Projets\PovRayLib\povray\LIBPNG\PNGRTRAN.C(1823) : warning C4244: '=' : conversion from 'unsigned short ' to 'unsigned char ', possible loss of data
+H:\AkraLog\Projets\PovRayLib\povray\LIBPNG\PNGRTRAN.C(1853) : warning C4244: '=' : conversion from 'unsigned short ' to 'unsigned char ', possible loss of data
+H:\AkraLog\Projets\PovRayLib\povray\LIBPNG\PNGRTRAN.C(1971) : warning C4244: '=' : conversion from 'unsigned short ' to 'unsigned char ', possible loss of data
+H:\AkraLog\Projets\PovRayLib\povray\LIBPNG\PNGRTRAN.C(1972) : warning C4244: '=' : conversion from 'unsigned short ' to 'unsigned char ', possible loss of data
+H:\AkraLog\Projets\PovRayLib\povray\LIBPNG\PNGRTRAN.C(1973) : warning C4244: '=' : conversion from 'unsigned short ' to 'unsigned char ', possible loss of data
+H:\AkraLog\Projets\PovRayLib\povray\LIBPNG\PNGRTRAN.C(2015) : warning C4244: '=' : conversion from 'unsigned short ' to 'unsigned char ', possible loss of data
+H:\AkraLog\Projets\PovRayLib\povray\LIBPNG\PNGRTRAN.C(2016) : warning C4244: '=' : conversion from 'unsigned short ' to 'unsigned char ', possible loss of data
+H:\AkraLog\Projets\PovRayLib\povray\LIBPNG\PNGRTRAN.C(2017) : warning C4244: '=' : conversion from 'unsigned short ' to 'unsigned char ', possible loss of data
+PNGRUTIL.C
+H:\AkraLog\Projets\PovRayLib\povray\LIBPNG\PNGRUTIL.C(802) : warning C4018: '!=' : signed/unsigned mismatch
+H:\AkraLog\Projets\PovRayLib\povray\LIBPNG\PNGRUTIL.C(1408) : warning C4018: '<' : signed/unsigned mismatch
+PNGTRANS.C
+PNGWIO.C
+PNGWRITE.C
+PNGWTRAN.C
+H:\AkraLog\Projets\PovRayLib\povray\LIBPNG\PNGWTRAN.C(71) : warning C4018: '<' : signed/unsigned mismatch
+H:\AkraLog\Projets\PovRayLib\povray\LIBPNG\PNGWTRAN.C(103) : warning C4018: '<' : signed/unsigned mismatch
+H:\AkraLog\Projets\PovRayLib\povray\LIBPNG\PNGWTRAN.C(135) : warning C4018: '<' : signed/unsigned mismatch
+H:\AkraLog\Projets\PovRayLib\povray\LIBPNG\PNGWTRAN.C(158) : warning C4244: '=' : conversion from 'unsigned short ' to 'unsigned char ', possible loss of data
+PNGWUTIL.C
+H:\AkraLog\Projets\PovRayLib\povray\LIBPNG\PNGWUTIL.C(286) : warning C4244: '=' : conversion from 'unsigned long ' to 'unsigned short ', possible loss of data
+H:\AkraLog\Projets\PovRayLib\povray\LIBPNG\PNGWUTIL.C(289) : warning C4018: '<' : signed/unsigned mismatch
+H:\AkraLog\Projets\PovRayLib\povray\LIBPNG\PNGWUTIL.C(1258) : warning C4018: '<' : signed/unsigned mismatch
+H:\AkraLog\Projets\PovRayLib\povray\LIBPNG\PNGWUTIL.C(1280) : warning C4018: '<' : signed/unsigned mismatch
+H:\AkraLog\Projets\PovRayLib\povray\LIBPNG\PNGWUTIL.C(1301) : warning C4018: '<' : signed/unsigned mismatch
+H:\AkraLog\Projets\PovRayLib\povray\LIBPNG\PNGWUTIL.C(1328) : warning C4018: '<' : signed/unsigned mismatch
+H:\AkraLog\Projets\PovRayLib\povray\LIBPNG\PNGWUTIL.C(1356) : warning C4018: '<' : signed/unsigned mismatch
+Creating library...
+
+
+
+libpng.lib - 0 error(s), 32 warning(s)

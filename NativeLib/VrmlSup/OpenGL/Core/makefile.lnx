@@ -1,0 +1,21 @@
+#/************************************************
+#* File: makefile.
+#* Desc: Building definitions for the VrmlSup OpenGL support lib.
+
+PROJECT= VrOglBase
+
+include $(AKRAPROJ)/geneMake.lnx
+
+CPPSRCS= oglRender.cpp guiControler.cpp
+
+INC+= -I$(PLZENHOME)/PUR/NativeLib/VrmlSup/include
+
+all: $(STATNAMELIB)
+
+
+$(STATNAMELIB): $(OBJS)
+	( cd $(OBJ_PATH) && \
+	    $(AR) cru $@ $(OBJS) && \
+	    $(RANLIB) $@ \
+	)
+

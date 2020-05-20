@@ -1,0 +1,42 @@
+#/************************************************
+#* File: makefile.
+#* Desc: Building definitions for the VrmlSup base support lib.
+
+PROJECT= PovRaySup
+VERSION= 0.1
+
+include $(AKRAPROJ)/geneMake.lnx
+
+
+SUPSRCS= camPovRay.cpp
+
+LIBSRCS= pLink.cpp pObject.cpp \
+	povEngine.cpp povExtensions.cpp
+
+CPPSRCS= $(SUPSRCS) $(LIBSRCS)
+
+
+INC+= -I$(AKRAHOME)/Projets/PovRayLib -I../include
+
+LDPATH= -L$(AKRAHOME)/Projets/PovRayLib/povray/unix \
+	-L$(AKRAHOME)/Projets/PovRayLib/povray/libpng \
+	-L$(AKRAHOME)/Projets/PovRayLib/povray/zlib \
+	-L$(OBJDEST)/lib/$(ARCHITECTURE)
+
+LIBS= -lVrmlSup -lPovVrExt -lPovRay -lpng -lz 
+LDFLAGS= -shared
+
+
+all: $(DYNNAMELIB).$(VERSION)
+
+$(DYNNAMELIB).$(VERSION): $(OBJS) 
+	( cd $(OBJ_PATH) && \
+	    $(LD) -o $@ $(LDFLAGS) $(OBJS) $(LDPATH) $(LIBS) \
+	)
+
+
+clean:
+	( cd $(OBJ_PATH) && \
+	    rm *$(OBJ_EXT) $(DYNNAMELIB).$(VERSION) \
+	)
+

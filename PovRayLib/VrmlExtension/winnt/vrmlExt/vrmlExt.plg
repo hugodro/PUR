@@ -1,0 +1,27 @@
+--------------------Configuration: vrmlExt - Win32 Debug--------------------
+Begining build with project "O:\AkraLog\Projets\PovRayLib\VrmlExtension\winnt\vrmlExt\vrmlExt.dsp", at root.
+Active configuration is Win32 (x86) Static Library (based on Win32 (x86) Static Library)
+
+Project's tools are:
+			"32-bit C/C++ Compiler for 80x86" with flags "/nologo /MDd /W3 /GX /Z7 /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_COMPLEX_DEFINED" /Fp"Debug/vrmlExt.pch" /YX /Fo"Debug/" /Fd"Debug/" /FD /c "
+			"Browser Database Maker" with flags "/nologo /o"Debug/vrmlExt.bsc" "
+			"Library Manager" with flags "/nologo /out:"Debug\vrmlExt.lib" "
+			"Custom Build" with flags ""
+			"<Component 0xa>" with flags ""
+
+Creating temp file "C:\TEMP\RSPF.tmp" with contents </nologo /MDd /W3 /GX /Z7 /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_COMPLEX_DEFINED" /Fp"Debug/vrmlExt.pch" /YX /Fo"Debug/" /Fd"Debug/" /FD /c 
+"O:\AkraLog\Projets\PovRayLib\VrmlExtension\winnt\parseVrml.cpp"
+>
+Creating command line "cl.exe @C:\TEMP\RSPF.tmp" 
+Creating command line "link.exe -lib /nologo /out:"Debug\vrmlExt.lib"  .\Debug\mapOperators.obj .\Debug\maths.obj .\Debug\parseVrml.obj .\Debug\pObject.obj .\Debug\povScene.obj .\Debug\renderContext.obj" 
+Compiling...
+parseVrml.cpp
+O:\AkraLog\Projets\PovRayLib\VrmlExtension\winnt\renderContext.h(17) : warning C4117: macro name '__cplusplus' is reserved, '#undef' ignored
+O:\AkraLog\Projets\PovRayLib\VrmlExtension\winnt\parseVrml.cpp(176) : warning C4101: 'Up_Length' : unreferenced local variable
+O:\AkraLog\Projets\PovRayLib\VrmlExtension\winnt\parseVrml.cpp(176) : warning C4101: 'Direction_Lenght' : unreferenced local variable
+O:\AkraLog\Projets\PovRayLib\VrmlExtension\winnt\parseVrml.cpp(176) : warning C4101: 'Handedness' : unreferenced local variable
+Creating library...
+
+
+
+vrmlExt.lib - 0 error(s), 4 warning(s)

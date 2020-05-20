@@ -1,0 +1,718 @@
+/*  Project pvengine
+
+    Copyright © 1996-1997 POV-Team. All Rights Reserved.
+
+    TARGET:       pvengine.exe application
+    FILE:         pvengine.rc
+    AUTHOR:       Chris Cason
+
+    OVERVIEW
+    ========
+    All resources defined here.
+*/
+
+#include "pvengine.rh"
+
+#include <winuser.h>
+
+#if !defined(WORKSHOP_INVOKED)
+#include <windows.h>
+#endif
+
+#ifndef DS_3DLOOK
+#define DS_3DLOOK       0x0004L
+#endif
+
+PVENGINE_MENU MENU 
+{
+ POPUP "&File"
+ {
+  MENUITEM "&New", CM_FILENEW
+  MENUITEM "&Open", CM_FILEOPEN
+  MENUITEM "&Save", CM_FILESAVE
+  MENUITEM SEPARATOR
+  MENUITEM "E&xit\tAlt+X", CM_FILEEXIT
+ }
+
+ POPUP "&Edit"
+ {
+  MENUITEM "&Copy Pane\tCtrl+Ins", CM_DUMPPANE
+  MENUITEM "C&lear Messages", CM_CLEARMESSAGES, GRAYED
+ }
+
+ POPUP "&Render"
+ {
+  MENUITEM "Edit Settings/&Render\tAlt+C", CM_COMMANDLINE
+  MENUITEM "&Select File and Render\tAlt+S", CM_SOURCEFILE
+  MENUITEM "Start Rendering (&Go!)\tAlt+G", CM_FILERENDER
+  MENUITEM SEPARATOR
+  MENUITEM "Run &Demo", CM_DEMO
+  MENUITEM SEPARATOR
+  MENUITEM "Aut&o Render", CM_AUTORENDER
+  MENUITEM "File &Queue ...\tAlt+Q", CM_FILEQUEUE
+  MENUITEM "C&lear Queue (No items)", CM_CLEARQUEUE, GRAYED
+  MENUITEM SEPARATOR
+  POPUP "Anima&tion"
+  {
+   MENUITEM "&Minimise Shellouts", CM_SYSTEMNOACTIVE
+   MENUITEM "&No Shellout Wait", CM_SHELLOUTWAIT
+  }
+
+  POPUP "&Niceness ..."
+  {
+   MENUITEM "&0 - Really Nice\tAlt+0", CM_NICENESS
+   MENUITEM "&1 - Kinda Nice\tAlt+1", CM_NICENESS + 1
+   MENUITEM "&2 - Sorta OK\tAlt+2", CM_NICENESS + 2
+   MENUITEM "&3 - Hurry it up\tAlt+3", CM_NICENESS + 3
+   MENUITEM "&4 - Be Very Selfish\tAlt+4", CM_NICENESS + 4
+   MENUITEM "&5 - CPU Hog\tAlt+5", CM_NICENESS + 5
+   MENUITEM "&6 - What's Multitasking ?\tAlt+6", CM_NICENESS + 6
+   MENUITEM "&L - Lock Up Your System", CM_NICENESS + 9
+  }
+
+  POPUP "On Co&mpletion ..."
+  {
+   MENUITEM "Do &Nothing", CM_COMPLETION_NOTHING
+   MENUITEM "&Beep", CM_COMPLETION_BEEP
+   MENUITEM "Display &Message", CM_COMPLETION_MESSAGE
+   MENUITEM "Beep and &Display Message", CM_COMPLETION_BEEPMESSAGE
+   MENUITEM "E&xit POV-Ray for Windows", CM_COMPLETION_EXIT
+  }
+
+ }
+
+ POPUP "Rer&un"
+ {
+  MENUITEM "Reru&n Dialog ...\tAlt+N", CM_RERUNDIALOG
+ }
+
+ POPUP "&Appearance"
+ {
+  MENUITEM "Expert &Menus", CM_EXPERTMENUS
+  MENUITEM "Use Ctl&3D", CM_USECTL3D
+  MENUITEM "Use &Non-Client Drawing On Main Window", CM_NONCLIENT
+  MENUITEM "Use Tiny &Caption On Render Window", CM_TINYCAPTION
+  MENUITEM "&Use File Browse Template", CM_USETEMPLATE
+  MENUITEM "&Don't Move Main Window When Maximinimsed", CM_LOCKMAXIMAIN
+  MENUITEM "&Keep Single Instance", CM_SINGLEINSTANCE
+  MENUITEM SEPARATOR
+  MENUITEM "Use &Editor", CM_USEEDITOR
+  MENUITEM "U&se Toolbar", CM_USETOOLBAR
+  MENUITEM "Show &Tooltips", CM_USETOOLTIPS
+  MENUITEM SEPARATOR
+  POPUP "Message &Window"
+  {
+   MENUITEM "Select &Tiled Background", CM_TILEDBACKGROUND
+   MENUITEM "Text &Font ...", CM_FONT
+   MENUITEM "Text &Colour ...", CM_TEXTCOLOUR
+   MENUITEM "&Background Colour ...", CM_BACKGROUNDCOLOUR
+   POPUP "Tiling &Options"
+   {
+    MENUITEM "&1 Black Marble", CM_BACKGROUNDSTD + 0
+    MENUITEM "&2 Blue Rock", CM_BACKGROUNDSTD + 1
+    MENUITEM "&3 Grey Rock", CM_BACKGROUNDSTD + 2
+    MENUITEM "&4 Wood 1", CM_BACKGROUNDSTD + 3
+    MENUITEM "&5 Wood 2", CM_BACKGROUNDSTD + 4
+    MENUITEM "&6 POV-Ray Web Background", CM_BACKGROUNDSTD + 5
+    MENUITEM "&Browse ...\tAlt+P", CM_BACKGROUNDBITMAP
+   }
+
+  }
+
+  POPUP "Render &Window"
+  {
+   MENUITEM "Force &8 bit display\tAlt+8", CM_FORCE8BITS
+   MENUITEM "Get &Focus on creation", CM_RENDERACTIVE
+   MENUITEM "&Keep above Main", CM_RENDERABOVEMAIN
+   MENUITEM "&Hide when Main minimised", CM_RENDERHIDE
+   MENUITEM "&Re-display", CM_RENDERSHOW
+   MENUITEM "&AutoClose", CM_RENDERAUTOCLOSE
+   MENUITEM "&Close", CM_RENDERCLOSE
+  }
+
+ }
+
+ POPUP "&Misc"
+ {
+  MENUITEM "Show &Tips of the Day", CM_TIPOFTHEDAY
+  MENUITEM "Show &Next Tip", CM_SHOWNEXTTIP
+  MENUITEM "Save Se&ttings on Exit", CM_SAVE_SETTINGS
+  MENUITEM "&Preserve Messages", CM_PRESERVEMESSAGES, GRAYED
+  MENUITEM SEPARATOR
+  POPUP "&Drag'N'Drop Destination"
+  {
+   MENUITEM "&Editor", CM_DROPEDITOR
+   MENUITEM "&Renderer", CM_DROPRENDERER
+  }
+
+ }
+
+ POPUP "&Tools"
+ {
+  MENUITEM "&Re-load Tool Menu", CM_LOADTOOLMENU
+ }
+
+ POPUP "G&UI-Extensions"
+ {
+  MENUITEM "&Use Extensions", CM_USEEXTENSIONS
+  MENUITEM "No GUI Extensions loaded", -1, GRAYED
+ }
+
+ POPUP "&Help"
+ {
+  MENUITEM "&Contents\tF1", CM_HELPCONTENTS
+  MENUITEM "&POV-Ray Documentation", CM_HELPPOVRAY
+  MENUITEM "Bug &Reporting", CM_HELPBUGS
+  MENUITEM "&Using Help", CM_HELPUSING_HELP
+  MENUITEM "Show &Tip", CM_SHOWNEXTTIP
+  MENUITEM SEPARATOR
+  MENUITEM "&GO POVRAY", CM_GOPOVRAY
+  MENUITEM "Go to the POVRAY &Web Site", CM_GOPOVRAYORG
+  MENUITEM "How to &join Compuserve (POVRAY forum)", CM_HELPCOMPUSERVE
+  MENUITEM SEPARATOR
+  MENUITEM "&Books on POV-Ray", CM_HELPBOOKS
+  MENUITEM "The POV-Ray C&DROM", CM_HELPCDROM
+  MENUITEM SEPARATOR
+  MENUITEM "POV-Ray &Legal Statement", CM_POVLEGAL
+  MENUITEM "&About POV-Ray for Windows ...\tAlt+B", CM_HELPABOUT
+ }
+
+}
+
+IDD_ABOUT DIALOG 135, 38, 350, 281
+STYLE DS_MODALFRAME | 0x4L | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+CAPTION "About POV-Ray(tm) for Windows"
+FONT 8, "Arial"
+{
+ CTEXT "", IDC_VERSION, 33, 18, 285, 8, SS_CENTER | SS_NOPREFIX | WS_GROUP
+ CTEXT "POV-Ray(tm) rendering engine for Windows", -1, 37, 9, 275, 8, SS_CENTER | SS_NOPREFIX | WS_GROUP
+ CONTROL "Copyright © 1991-1997 by the POV-Team.\rOriginal Windows version Copyright © 1996-1997 Christopher J. Cason.\r\nThis is an UNSUPPORTED UNOFFICIAL COMPILE\r\nPOV-Ray and its associated programs are copyrighted freeware.\rThis program may only be distributed under the conditions granted in POVLEGAL.DOC.\r\nDistribution under any other circumstances is a violation of copyright.", IDC_COPYRIGHT, "STATIC", SS_CENTER | SS_NOPREFIX | WS_GROUP, 24, 27, 301, 52
+ ICON IDI_NEW_PVENGINE, -1, 13, 10, 16, 16
+ PUSHBUTTON "&OK", IDOK, 138, 258, 75, 21
+ DEFPUSHBUTTON "&Push me to read POVLEGAL.DOC", IDC_READPOVLEGAL, 11, 78, 160, 21
+ GROUPBOX "Primary POV-Ray 3.0 Developers (alphabetically) ", -1, 6, 110, 339, 33, BS_GROUPBOX
+ CTEXT "Steve Anger, Dieter Bayer, Chris Cason, Chris Dailey, Steve Demlow,\r\nAlexander Enzmann, Dan Farmer, Timothy Wegner, Chris Young", -1, 15, 121, 319, 17
+ PUSHBUTTON "Push me to &save POVLEGAL.DOC", IDC_SAVEPOVLEGAL, 180, 78, 160, 21
+ GROUPBOX "Major contributing authors (alphabetically)", -1, 6, 147, 339, 49, BS_GROUPBOX
+ CTEXT "Kendall Bennett, Steve A. Bennett, David K. Buck, Aaron A. Collins, Andreas Dilger\r\nPascal Massimino, Douglas Muir, Bill Pulver, Tim Rowley, Robert Skinner\r\nZsolt Szalavari, Scott Taylor, Drew Wells", -1, 15, 156, 319, 26
+ GROUPBOX "", IDC_GROUPBOX6, 6, 1, 339, 101, BS_GROUPBOX
+ GROUPBOX "", -1, 6, 222, 339, 32, BS_GROUPBOX
+ GROUPBOX "", -1, 6, 198, 339, 22, BS_GROUPBOX
+ CTEXT "Original Microsoft Windows port of POV-Ray by Christopher Cason\r\nThis is an UNSUPPORTED UNOFFICIAL COMPILE", -1, 28, 206, 299, 9
+ PUSHBUTTON "Push me for information on POV-Ray &Books and CDROM's", IDC_ACCESSORIES, 11, 230, 329, 21
+ CTEXT "Many thanks to TurboPower Software for donating the copy of Orpheus used in the editor", -1, 13, 183, 327, 9
+}
+
+1 VERSIONINFO 
+FILEVERSION 1, 0, 0, 0
+PRODUCTVERSION 1, 0, 0, 0
+FILEFLAGSMASK 0
+{
+ BLOCK "StringFileInfo"
+ {
+  BLOCK "040904E4"
+  {
+   VALUE "CompanyName", "\000"
+   VALUE "FileDescription", "POV-Ray(tm) for Windows\000"
+   VALUE "FileVersion", "Release\000"
+   VALUE "InternalName", "PVEngine"
+   VALUE "LegalCopyright", "Copyright (c) 1996-1997 POV-Team.\nAll Rights Reserved. May only be distributed under the terms of the POV-Team's POVLEGAL.DOC file\000"
+   VALUE "LegalTrademarks", "POV-Ray(tm) is a trademark of the Persistence of Vision Development Team\000"
+   VALUE "OriginalFilename", "PVEngine.EXE\000"
+   VALUE "ProductName", "POV-Ray\000"
+   VALUE "ProductVersion", "3\000"
+  }
+
+ }
+
+ BLOCK "VarFileInfo"
+ {
+  VALUE "Translation", 0x0409, 0x04e4
+ }
+
+}
+
+IDD_COMMANDLINE DIALOG 144, 38, 345, 246
+STYLE DS_MODALFRAME | 0x4L | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+CAPTION "POV-Ray for Windows render settings"
+FONT 8, "MS Sans Serif"
+{
+ CONTROL "", IDC_PRESETSOURCEPATH, "STATIC", SS_LEFTNOWORDWRAP | SS_NOPREFIX | WS_CHILD | WS_VISIBLE | WS_BORDER | WS_GROUP, 42, 14, 291, 14
+ EDITTEXT IDC_PRESETSOURCENAME, 42, 34, 119, 14, ES_AUTOHSCROLL | WS_BORDER | WS_TABSTOP
+ PUSHBUTTON "&Browse", IDC_BROWSESOURCEFILE, 42, 53, 50, 14
+ PUSHBUTTON "&Default", IDC_SOURCEDEFAULT, 102, 53, 50, 14
+ PUSHBUTTON "&Render", IDC_RENDER, 222, 53, 50, 14
+ PUSHBUTTON "&Edit", IDC_EDITRENDER, 162, 53, 50, 14
+ CONTROL "", IDC_INIFILEPATH, "STATIC", SS_LEFTNOWORDWRAP | SS_NOPREFIX | WS_CHILD | WS_VISIBLE | WS_BORDER | WS_GROUP, 42, 87, 291, 14
+ EDITTEXT IDC_INIFILENAME, 42, 107, 119, 14, ES_AUTOHSCROLL | WS_BORDER | WS_TABSTOP
+ COMBOBOX IDC_INIFILESECTION, 222, 108, 111, 125, CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+ PUSHBUTTON "Bro&wse", IDC_BROWSEINIFILE, 42, 127, 50, 14
+ PUSHBUTTON "Ed&it", IDC_EDITINI, 162, 127, 50, 14, WS_TABSTOP
+ PUSHBUTTON "De&fault", IDC_INIDEFAULT, 102, 127, 50, 14
+ PUSHBUTTON "C&lear", IDC_RESETINI, 222, 127, 50, 14
+ EDITTEXT IDC_COMMANDLINE, 10, 184, 326, 14, ES_AUTOHSCROLL | WS_BORDER | WS_TABSTOP
+ DEFPUSHBUTTON "&Render", IDC_RENDER, 10, 220, 74, 17
+ PUSHBUTTON "&Set but don't Render", IDC_SET, 94, 220, 74, 17
+ PUSHBUTTON "&Cancel", IDCANCEL, 178, 220, 74, 17
+ PUSHBUTTON "&Help", IDC_CONTEXTHELP, 262, 220, 74, 17
+ GROUPBOX "Source file:", IDC_GROUPBOX2, 5, 2, 336, 70, BS_GROUPBOX
+ GROUPBOX "INI File:", IDC_GROUPBOX1, 5, 75, 336, 71, BS_GROUPBOX
+ GROUPBOX "Command line options:", IDC_GROUPBOX3, 5, 149, 336, 57, BS_GROUPBOX
+ GROUPBOX "", IDC_GROUPBOX4, 5, 211, 336, 30, BS_GROUPBOX
+ LTEXT "Path:", -1, 15, 16, 21, 10
+ LTEXT "Name:", -1, 15, 36, 21, 10
+ LTEXT "Path:", -1, 15, 89, 21, 10
+ LTEXT "Name:", -1, 15, 109, 21, 10
+ LTEXT "Section:", -1, 164, 110, 53, 10
+ PUSHBUTTON "&Options Editor (not yet available)", IDC_OPTIONSEDITOR, 10, 160, 326, 19, WS_DISABLED | WS_TABSTOP
+}
+
+IDD_SHORTCOMMANDLINE DIALOG 159, 113, 351, 107
+STYLE DS_MODALFRAME | 0x4L | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+CAPTION "POV-Ray for Windows render settings"
+FONT 8, "MS Sans Serif"
+{
+ EDITTEXT IDC_COMMANDLINE, 10, 40, 330, 14, ES_AUTOHSCROLL | WS_BORDER | WS_TABSTOP
+ PUSHBUTTON "&Cancel", IDCANCEL, 139, 76, 74, 17
+ DEFPUSHBUTTON "&Render", IDC_RENDER, 14, 76, 74, 17
+ PUSHBUTTON "&Help", IDC_COMMANDHELP, 264, 76, 74, 17
+ GROUPBOX "&Command line options", IDC_GROUPBOX3, 6, 5, 339, 57, BS_GROUPBOX
+ PUSHBUTTON "&Options Editor", IDC_OPTIONSEDITOR, 11, 19, 64, 14, WS_DISABLED | WS_TABSTOP
+ LTEXT "NOTE - options editor not implemented.", -1, 79, 21, 252, 12
+ GROUPBOX "", IDC_GROUPBOX4, 6, 65, 339, 34, BS_GROUPBOX
+}
+
+PVENGINE_MENU ACCELERATORS 
+{
+ "b", CM_HELPABOUT, ASCII, ALT
+ "c", CM_COMMANDLINE, ASCII, ALT
+ "p", CM_BACKGROUNDBITMAP, ASCII, ALT
+ "g", CM_FILERENDER, ASCII, ALT
+ "n", CM_RERUNDIALOG, ASCII, ALT
+ "q", CM_FILEQUEUE, ASCII, ALT
+ "s", CM_SOURCEFILE, ASCII, ALT
+ "w", CM_SHOWMAINWINDOW, ASCII, ALT
+ "x", CM_FILEEXIT, ASCII, ALT
+ "B", CM_HELPABOUT, ASCII, ALT
+ "C", CM_COMMANDLINE, ASCII, ALT
+ "P", CM_BACKGROUNDBITMAP, ASCII, ALT
+ "G", CM_FILERENDER, ASCII, ALT
+ "N", CM_RERUNDIALOG, ASCII, ALT
+ "Q", CM_FILEQUEUE, ASCII, ALT
+ "S", CM_SOURCEFILE, ASCII, ALT
+ "W", CM_SHOWMAINWINDOW, ASCII, ALT
+ "X", CM_FILEEXIT, ASCII, ALT
+ VK_F1, CM_HELPCONTENTS, VIRTKEY
+ VK_F4, CM_FILEEXIT, VIRTKEY, ALT
+ VK_F6, CM_NEXTWINDOW, VIRTKEY
+ VK_F6, CM_PREVWINDOW, VIRTKEY, SHIFT
+ VK_RIGHT, CM_NEXTWINDOW, VIRTKEY, ALT
+ VK_LEFT, CM_PREVWINDOW, VIRTKEY, ALT
+}
+
+IDD_TIP DIALOG 6, 23, 261, 130
+STYLE DS_MODALFRAME | 0x4L | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+CAPTION "Tip Of The Day"
+FONT 8, "MS Sans Serif"
+{
+ CONTROL "", IDC_TIPFRAME, "STATIC", SS_GRAYFRAME | WS_CHILD | WS_VISIBLE, 7, 7, 188, 107
+ DEFPUSHBUTTON "OK", IDOK, 203, 33, 50, 14
+ PUSHBUTTON "&Next Tip", IDC_NEXTTIP, 203, 58, 50, 14
+ PUSHBUTTON "&Previous Tip", IDC_PREVIOUSTIP, 203, 83, 50, 14
+ AUTOCHECKBOX "&Show Tip Tomorrow ", IDC_SHOWTIPS, 8, 117, 80, 11
+}
+
+
+IDD_FILEQUEUE DIALOG 156, 118, 355, 200
+STYLE DS_MODALFRAME | 0x4L | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+CAPTION "File Queue"
+FONT 8, "MS Sans Serif"
+{
+ PUSHBUTTON "&Add File", IDC_ADDFILE, 298, 43, 48, 14
+ PUSHBUTTON "&Remove File", IDC_DELETEFILE, 298, 68, 48, 14
+ DEFPUSHBUTTON "&OK", IDOK, 298, 93, 48, 14
+ PUSHBUTTON "&Cancel", IDCANCEL, 298, 118, 48, 14
+ PUSHBUTTON "&Help", IDC_CONTEXTHELP, 298, 143, 48, 14
+ CHECKBOX "Reload on &startup", IDC_RELOADQUEUE, 14, 179, 80, 10, BS_AUTOCHECKBOX | WS_TABSTOP
+ LISTBOX IDC_FILEQUEUE, 6, 7, 280, 160, LBS_NOTIFY | WS_BORDER | LBS_OWNERDRAWFIXED | LBS_HASSTRINGS | WS_BORDER | WS_VSCROLL
+ RTEXT "Queue has 0 entries", IDC_QUEUEENTRIES, 177, 179, 102, 10
+ GROUPBOX "", -1, 5, 168, 281, 26, BS_GROUPBOX
+ GROUPBOX "", -1, 292, 3, 59, 191, BS_GROUPBOX
+ CHECKBOX "A&uto Render", IDC_AUTORENDER, 103, 179, 72, 10, BS_AUTOCHECKBOX | WS_TABSTOP
+}
+
+IDD_RERUN DIALOG 6, 18, 308, 139
+STYLE DS_MODALFRAME | 0x4L | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+CAPTION "Rerun Dialog"
+FONT 10, "System"
+{
+ PUSHBUTTON "&Cancel", IDCANCEL, 162, 122, 50, 14
+ LISTBOX IDC_RERUNLIST, 5, 6, 297, 111, LBS_NOTIFY | WS_BORDER | LBS_OWNERDRAWFIXED | LBS_HASSTRINGS | WS_BORDER | WS_VSCROLL
+ PUSHBUTTON "&Render", IDC_RERUN, 28, 122, 50, 14
+ PUSHBUTTON "&Statistics", IDC_STATISTICS, 95, 122, 50, 14
+ PUSHBUTTON "&Help", IDC_CONTEXTHELP, 229, 122, 50, 14
+}
+
+IDD_VIEW DIALOG 10, 30, 400, 247
+STYLE DS_MODALFRAME | 0x4L | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+FONT 8, "MS Sans Serif"
+{
+ DEFPUSHBUTTON "&OK", IDOK, 175, 224, 50, 17
+ LISTBOX IDC_LISTBOX, 4, 6, 391, 210, LBS_NOTIFY | WS_BORDER | LBS_OWNERDRAWFIXED | LBS_HASSTRINGS | WS_BORDER | WS_VSCROLL
+}
+
+POPUP_MENUS MENU
+{
+ POPUP "Main Popup Menu"
+ {
+  MENUITEM "Edit Settings/&Render\tAlt+C", CM_COMMANDLINE
+  MENUITEM "&Select File and Render\tAlt+S", CM_SOURCEFILE
+  MENUITEM "Start Renderin&g\tAlt+G", CM_FILERENDER
+  MENUITEM "Reru&n Dialog ...\tAlt+N", CM_RERUNDIALOG
+  MENUITEM "File &Queue ...\tAlt+Q", CM_FILEQUEUE
+  MENUITEM "C&lear Queue (No items)", CM_CLEARQUEUE, GRAYED
+  MENUITEM "Re-display Render &Window", CM_RENDERSHOW
+  MENUITEM "Show &Tip", CM_SHOWNEXTTIP
+  MENUITEM SEPARATOR
+  POPUP "Ni&ceness ..."
+  {
+   MENUITEM "&0 - Really Nice", CM_NICENESS
+   MENUITEM "&1 - Kinda Nice", CM_NICENESS + 1
+   MENUITEM "&2 - Sorta OK", CM_NICENESS + 2
+   MENUITEM "&3 - Hurry it up", CM_NICENESS + 3
+   MENUITEM "&4 - Be Very Selfish", CM_NICENESS + 4
+   MENUITEM "&5 - CPU Hog", CM_NICENESS + 5
+   MENUITEM "&6 - What's Multitasking ?", CM_NICENESS + 6
+   MENUITEM "&L - Lock Up Your System", CM_NICENESS + 9
+  }
+
+ }
+
+ POPUP "Render Popup Menu"
+ {
+  MENUITEM "Get &Focus on creation", CM_RENDERACTIVE
+  MENUITEM "&Keep above Main", CM_RENDERABOVEMAIN
+  MENUITEM "&Hide when Main minimised", CM_RENDERHIDE
+  MENUITEM "&Use tiny caption", CM_TINYCAPTION
+  MENUITEM "&AutoClose", CM_RENDERAUTOCLOSE
+  MENUITEM "&Close", CM_RENDERCLOSE
+ }
+}
+
+POPUP_MENUS32 MENU
+{
+ POPUP "Main Popup Menu"
+ {
+  MENUITEM "Edit Settings/&Render\tAlt+C", CM_COMMANDLINE
+  MENUITEM "&Select File and Render\tAlt+S", CM_SOURCEFILE
+  MENUITEM "Start Renderin&g\tAlt+G", CM_FILERENDER
+  MENUITEM "Reru&n Dialog ...\tAlt+N", CM_RERUNDIALOG
+  MENUITEM "File &Queue ...\tAlt+Q", CM_FILEQUEUE
+  MENUITEM "C&lear Queue (No items)", CM_CLEARQUEUE, GRAYED
+  MENUITEM "Put &Main Window in Taskbar", CM_SHOWMAINWINDOW
+  MENUITEM "Re-display Render &Window", CM_RENDERSHOW
+  MENUITEM "Show &Tip", CM_SHOWNEXTTIP
+  MENUITEM SEPARATOR
+  POPUP "&GUI Priority ..."
+  {
+   MENUITEM "&Lowest", CM_GUIPRIORITY_LOWEST
+   MENUITEM "&Lower", CM_GUIPRIORITY_LOW
+   MENUITEM "&Normal", CM_GUIPRIORITY_NORMAL
+   MENUITEM "&Higher", CM_GUIPRIORITY_HIGH
+   MENUITEM "&Highest", CM_GUIPRIORITY_HIGHEST
+  }
+  POPUP "Render &Priority ..."
+  {
+   MENUITEM "&Lowest", CM_RENDERPRIORITY_LOWEST
+   MENUITEM "&Lower", CM_RENDERPRIORITY_LOW
+   MENUITEM "&Normal", CM_RENDERPRIORITY_NORMAL
+   MENUITEM "&Higher", CM_RENDERPRIORITY_HIGH
+   MENUITEM "&Highest", CM_RENDERPRIORITY_HIGHEST
+  }
+
+ }
+
+ POPUP "Render Popup Menu"
+ {
+  MENUITEM "Get &Focus on creation", CM_RENDERACTIVE
+  MENUITEM "&Keep above Main", CM_RENDERABOVEMAIN
+  MENUITEM "&Hide when Main minimised", CM_RENDERHIDE
+  MENUITEM "&Use tiny caption", CM_TINYCAPTION
+  MENUITEM "&AutoClose", CM_RENDERAUTOCLOSE
+  MENUITEM "&Close", CM_RENDERCLOSE
+ }
+}
+
+IDD_COMMFILE DIALOG 54, 30, 316, 250
+STYLE DS_MODALFRAME | 0x4L | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Open"
+FONT 8, "Helv"
+{
+ LTEXT "File &Name:", 1090, 10, 6, 76, 9
+ EDITTEXT 1152, 10, 16, 110, 12, ES_AUTOHSCROLL | ES_OEMCONVERT | WS_BORDER | WS_TABSTOP
+ LISTBOX 1120, 10, 32, 110, 182, LBS_STANDARD | LBS_OWNERDRAWFIXED | LBS_HASSTRINGS | LBS_EXTENDEDSEL | LBS_DISABLENOSCROLL | WS_TABSTOP
+ LTEXT "&Directories:", -1, 134, 6, 92, 9
+ LTEXT "", 1088, 134, 18, 92, 9, SS_NOPREFIX | WS_GROUP
+ LISTBOX 1121, 134, 32, 119, 184, LBS_STANDARD | LBS_OWNERDRAWFIXED | LBS_HASSTRINGS | LBS_DISABLENOSCROLL | WS_TABSTOP
+ LTEXT "List Files of &Type:", 1089, 11, 218, 90, 9
+ COMBOBOX 1136, 10, 228, 110, 68, CBS_DROPDOWNLIST | CBS_AUTOHSCROLL | WS_BORDER | WS_VSCROLL | WS_TABSTOP
+ LTEXT "Dri&ves:", 1091, 134, 218, 92, 9
+ COMBOBOX 1137, 134, 228, 120, 68, CBS_DROPDOWNLIST | CBS_OWNERDRAWFIXED | CBS_AUTOHSCROLL | CBS_SORT | CBS_HASSTRINGS | WS_BORDER | WS_VSCROLL | WS_TABSTOP
+ DEFPUSHBUTTON "OK", 1, 261, 31, 50, 20, BS_DEFPUSHBUTTON | WS_GROUP | WS_TABSTOP
+ PUSHBUTTON "Cancel", 2, 261, 56, 50, 21, WS_GROUP | WS_TABSTOP
+}
+
+IDD_NTCOMMFILE DIALOG 192, 63, 305, 234
+STYLE DS_MODALFRAME | 0x4L | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Open"
+FONT 8, "Helv"
+{
+ LTEXT "File &Name:", 1090, 11, 6, 101, 9
+ EDITTEXT 1152, 11, 16, 107, 12, ES_AUTOHSCROLL | ES_OEMCONVERT | WS_BORDER | WS_TABSTOP
+ LISTBOX 1120, 11, 32, 107, 163, LBS_STANDARD | LBS_OWNERDRAWFIXED | LBS_HASSTRINGS | LBS_DISABLENOSCROLL | WS_TABSTOP
+ LTEXT "&Directories:", -1, 132, 6, 108, 9
+ LTEXT "", 1088, 148, 18, 92, 9, SS_NOPREFIX | WS_GROUP
+ LISTBOX 1121, 132, 32, 108, 161, LBS_STANDARD | LBS_OWNERDRAWFIXED | LBS_HASSTRINGS | LBS_DISABLENOSCROLL | WS_TABSTOP
+ LTEXT "List Files of &Type:", 1089, 11, 200, 107, 9
+ COMBOBOX 1136, 11, 210, 107, 35, CBS_DROPDOWNLIST | CBS_AUTOHSCROLL | WS_BORDER | WS_VSCROLL | WS_TABSTOP
+ LTEXT "Dri&ves:", 1091, 132, 200, 108, 9
+ COMBOBOX 1137, 132, 210, 108, 68, CBS_DROPDOWNLIST | CBS_OWNERDRAWFIXED | CBS_AUTOHSCROLL | CBS_SORT | CBS_HASSTRINGS | WS_BORDER | WS_VSCROLL | WS_TABSTOP
+ DEFPUSHBUTTON "OK", 1, 248, 6, 50, 14, BS_DEFPUSHBUTTON | WS_GROUP | WS_TABSTOP
+ PUSHBUTTON "Cancel", 2, 248, 24, 50, 14, WS_GROUP | WS_TABSTOP
+ PUSHBUTTON "&Help", 1038, 248, 46, 50, 14, WS_GROUP | WS_TABSTOP
+ CHECKBOX "&Read Only", 1040, 248, 68, 50, 12, BS_AUTOCHECKBOX | WS_GROUP | WS_TABSTOP
+}
+
+7000 BITMAP "bitmaps\\default.bmp"
+7001 BITMAP "bitmaps\\backgnd1.bmp"
+7002 BITMAP "bitmaps\\backgnd2.bmp"
+7005 BITMAP "bitmaps\\backgnd3.bmp"
+7003 BITMAP "bitmaps\\backgnd4.bmp"
+7004 BITMAP "bitmaps\\backgnd5.bmp"
+
+BMP_MAXIMINI BITMAP "bitmaps\\maximini.bmp"
+BMP_ICON BITMAP "bitmaps\\icon.bmp"
+BMP_RENDERING BITMAP "bitmaps\\render.bmp"
+BMP_SPLASH BITMAP "bitmaps\\splash4.bmp"
+BMP_TOOLBAR BITMAP "bitmaps\\toolbar.bmp"
+IDI_NEW_PVENGINE ICON "icons\\pvengine.ico"
+
+STRINGTABLE 
+{
+ CM_FILEEXIT, "Exit POV-Ray for Windows"
+ CM_DUMPPANE, "Copy current displayed messages to clipboard."
+ CM_CLEARMESSAGES, "Clear all messages."
+ CM_SOURCEFILE, "Pops up a file browser which allows you to select a file to render."
+ CM_FILERENDER, "Starts/stops rendering (requires previous selection of input file)."
+ CM_COMMANDLINE, "Edit command line, INI, and file settings, then allows you to run a render."
+ CM_DEMO, "Run a demonstration of POV-Ray for Windows."
+ CM_ALERT, "Provide an audible alert upon completion of a render."
+ CM_SHELLOUTWAIT, "Do not wait for INI-specified shellout commands to complete."
+ CM_AUTORENDER, "Automatically start rendering files placed in the File Queue."
+ CM_RERUNDIALOG, "Displays the rerun dialog, from which you can view statistics and rerun scenes."
+ CM_FORCE8BITS, "Force 8-bit dithered display on machines with high or true colour."
+ CM_RENDERACTIVE, "Causes render window to receive input focus when it is created."
+ CM_RENDERABOVEMAIN, "Keep the render window above the main window."
+ CM_RENDERHIDE, "Hide the render window when the main window is minimised."
+ CM_RENDERSHOW, "Re-displays the render window if it has been closed."
+ CM_RENDERCLOSE, "Close the render window."
+ CM_RENDERAUTOCLOSE, "Automatically close the render window after each render completes."
+ CM_RENDERSLEEP, "Pauses rendering."
+ CM_NICENESS + 9, "Provides a confirmation dialog before allowing you to select it."
+ CM_USECTL3D, "On Windows 3.x systems, will turn on/off CTL3D effects next time POV-Ray is run."
+ CM_NONCLIENT, "Turns on/off the special non-client drawing effects on the main window."
+ CM_TILEDBACKGROUND, "Toggles between plain colour and tiled bitmap backgrounds."
+ CM_FONT, "Chooses the font used to display text in the message window."
+ CM_TEXTCOLOUR, "Chooses the colour of the text displayed in the message window."
+ CM_BACKGROUNDCOLOUR, "For when you are using a plain background, selects the background colour."
+ CM_BACKGROUNDBITMAP, "Allows you to choose a .BMP file for the background."
+ CM_LOADTOOLMENU, "Re-load the tool menu from PVTOOLS.INI"
+ CM_TIPOFTHEDAY, "When selected, POV-Ray will show a Tip Of The Day message once a day, on startup."
+ CM_SHOWNEXTTIP, "Show a Tip Of The Day now !"
+ CM_SAVE_SETTINGS, "Save the state of any changes you made to menu selection, etc. when POV-Ray for Windows exits."
+ CM_PRESERVEMESSAGES, "When selected, POV-Ray will not erase messages between renders in the same session."
+ CM_FILEQUEUE, "Pops up a dialog which allows you to manipulate the File Queue"
+ CM_CLEARQUEUE, "Clear all entries in the File Queue."
+ CM_TINYCAPTION, "When selected, POV-Ray will use special tiny captions on the render window."
+ CM_USETEMPLATE, "Use POV-Ray's internal template for the File Browse dialog box"
+ CM_FILENEW, "Create new file with internal editor"
+ CM_FILEOPEN, "Open existing file with internal editor"
+ CM_FILESAVE, "Save file from internal editor"
+ CM_FILESAVEAS, "Save file using new name"
+ CM_POVLEGAL, "Displays the POV-Ray copyright and legal distribution rules."
+ CM_HELPBUGS, "How to report bugs"
+ CM_SYSTEMNOACTIVE, "Programs specified in the INI file as shellouts will be run minimised"
+ CM_HELPBOOKS, "Information about books written for POV-Ray"
+ CM_HELPCDROM, "Information about The Official POV-Ray CDROM"
+ CM_LOCKMAXIMAIN, "Don't change the original position of the main window while moving it when maximinised"
+ CM_SINGLEINSTANCE, "Only one copy of POV-Ray for Windows will be allowed to run at any one time"
+ CM_USETOOLBAR, "Tells POV-Ray for Windows to use a toolbar"
+ CM_USETOOLTIPS, "Show tooltips (pop-up hints over the toolbar buttons)."
+ CM_HELPCONTENTS, "Help on using POV-Ray for Windows"
+ CM_HELPPOVRAY, "The POV-Ray documentation - how to use the raytracer"
+ CM_HELPUSING_HELP, "How to use Help"
+ CM_HELPABOUT, "Displays the About POV-Ray for Windows dialog box"
+ CM_HELPBOOKCDROM, "Displays information about POV-Ray Books and CDROM's"
+ CM_GOPOVRAY, "Launches WINCIM and takes you to the POVRAY forum"
+ CM_GOPOVRAYORG, "Launches your internet browser and takes you to WWW.POVRAY.ORG"
+ CM_HELPCOMPUSERVE, "Gives you information on how to join Compserve to access the POVRAY forum"
+}
+
+PVENGINE_MENU32 MENU 
+{
+ POPUP "&File"
+ {
+  MENUITEM "E&xit\tAlt+X", CM_FILEEXIT
+ }
+
+ POPUP "&Edit"
+ {
+  MENUITEM "Copy &Pane\tCtrl+Ins", CM_DUMPPANE
+  MENUITEM "C&lear Messages", CM_CLEARMESSAGES, GRAYED
+ }
+
+ POPUP "&Render"
+ {
+  MENUITEM "Edit Settings/&Render\tAlt+C", CM_COMMANDLINE
+  MENUITEM "&Select File and Render\tAlt+S", CM_SOURCEFILE
+  MENUITEM "Start Rendering (&Go!)\tAlt+G", CM_FILERENDER
+  MENUITEM SEPARATOR
+  MENUITEM "Run &Demo", CM_DEMO
+  MENUITEM SEPARATOR
+  MENUITEM "Aut&o Render", CM_AUTORENDER
+  MENUITEM "File &Queue ...\tAlt+Q", CM_FILEQUEUE
+  MENUITEM "C&lear Queue (No items)", CM_CLEARQUEUE, GRAYED
+  MENUITEM SEPARATOR
+  POPUP "Anima&tion"
+  {
+   MENUITEM "&Minimise Shellouts", CM_SYSTEMNOACTIVE
+   MENUITEM "&No Shellout Wait", CM_SHELLOUTWAIT
+  }
+
+  POPUP "&GUI Priority ..."
+  {
+   MENUITEM "&Lowest", CM_GUIPRIORITY_LOWEST
+   MENUITEM "&Lower", CM_GUIPRIORITY_LOW
+   MENUITEM "&Normal", CM_GUIPRIORITY_NORMAL
+   MENUITEM "&Higher", CM_GUIPRIORITY_HIGH
+   MENUITEM "&Highest", CM_GUIPRIORITY_HIGHEST
+  }
+
+  POPUP "Render &Priority ..."
+  {
+   MENUITEM "&Lowest", CM_RENDERPRIORITY_LOWEST
+   MENUITEM "&Lower", CM_RENDERPRIORITY_LOW
+   MENUITEM "&Normal", CM_RENDERPRIORITY_NORMAL
+   MENUITEM "&Higher", CM_RENDERPRIORITY_HIGH
+   MENUITEM "&Highest", CM_RENDERPRIORITY_HIGHEST
+  }
+
+  POPUP "On Co&mpletion ..."
+  {
+   MENUITEM "Do &Nothing", CM_COMPLETION_NOTHING
+   MENUITEM "&Beep", CM_COMPLETION_BEEP
+   MENUITEM "Display &Message", CM_COMPLETION_MESSAGE
+   MENUITEM "Beep and &Display Message", CM_COMPLETION_BEEPMESSAGE
+   MENUITEM "E&xit POV-Ray for Windows", CM_COMPLETION_EXIT
+  }
+
+ }
+
+ POPUP "Rer&un"
+ {
+  MENUITEM "Reru&n Dialog ...\tAlt+N", CM_RERUNDIALOG
+ }
+
+ POPUP "&Appearance"
+ {
+  MENUITEM "&Expert Menus", CM_EXPERTMENUS
+  MENUITEM "Use &Non-Client Drawing On Main Window", CM_NONCLIENT
+  MENUITEM "Use Tiny &Caption On Render Window", CM_TINYCAPTION
+  MENUITEM "&Use File Browse Template", CM_USETEMPLATE
+  MENUITEM "&Don't Move Main Window When Maximinimsed", CM_LOCKMAXIMAIN
+  MENUITEM "&Keep Single Instance", CM_SINGLEINSTANCE
+  MENUITEM SEPARATOR
+  MENUITEM "Put &Main Window in Taskbar\tALT+W", CM_SHOWMAINWINDOW
+  MENUITEM "Use &Editor", CM_USEEDITOR
+  MENUITEM "Use Tool&bar", CM_USETOOLBAR
+  MENUITEM "&Show Tooltips", CM_USETOOLTIPS
+  MENUITEM SEPARATOR
+  POPUP "&Message Window"
+  {
+   MENUITEM "Select &Tiled Background", CM_TILEDBACKGROUND
+   MENUITEM "Text &Font ...", CM_FONT
+   MENUITEM "Text &Colour ...", CM_TEXTCOLOUR
+   MENUITEM "&Background Colour ...", CM_BACKGROUNDCOLOUR
+   POPUP "Tiling &Options"
+   {
+    MENUITEM "&1 Black Marble", CM_BACKGROUNDSTD + 0
+    MENUITEM "&2 Blue Rock", CM_BACKGROUNDSTD + 1
+    MENUITEM "&3 Grey Rock", CM_BACKGROUNDSTD + 2
+    MENUITEM "&4 Wood 1", CM_BACKGROUNDSTD + 3
+    MENUITEM "&5 Wood 2", CM_BACKGROUNDSTD + 4
+    MENUITEM "&6 POV-Ray Web Background", CM_BACKGROUNDSTD + 5
+    MENUITEM "&Browse ...\tAlt+P", CM_BACKGROUNDBITMAP
+   }
+
+  }
+
+  POPUP "Render &Window"
+  {
+   MENUITEM "Force &8 bit display\tAlt+8", CM_FORCE8BITS
+   MENUITEM "Get &Focus on creation", CM_RENDERACTIVE
+   MENUITEM "&Keep above Main", CM_RENDERABOVEMAIN
+   MENUITEM "&Hide when Main minimised", CM_RENDERHIDE
+   MENUITEM "&Re-display", CM_RENDERSHOW
+   MENUITEM "&AutoClose", CM_RENDERAUTOCLOSE
+   MENUITEM "&Close", CM_RENDERCLOSE
+  }
+
+ }
+
+ POPUP "&Misc"
+ {
+  MENUITEM "Show &Tips of the Day", CM_TIPOFTHEDAY
+  MENUITEM "Show &Next Tip", CM_SHOWNEXTTIP
+  MENUITEM "Save Se&ttings on Exit", CM_SAVE_SETTINGS
+  MENUITEM "&Preserve Messages", CM_PRESERVEMESSAGES, GRAYED
+  MENUITEM SEPARATOR
+  POPUP "&Drag'N'Drop Destination"
+  {
+   MENUITEM "&Editor", CM_DROPEDITOR
+   MENUITEM "&Renderer", CM_DROPRENDERER
+  }
+
+ }
+
+ POPUP "&Tools"
+ {
+  MENUITEM "&Re-load Tool Menu", CM_LOADTOOLMENU
+ }
+
+ POPUP "G&UI-Extensions"
+ {
+  MENUITEM "&Use Extensions", CM_USEEXTENSIONS
+  MENUITEM "No GUI Extensions loaded", -1, GRAYED
+ }
+
+ POPUP "&Help"
+ {
+  MENUITEM "&Contents\tF1", CM_HELPCONTENTS
+  MENUITEM "&POV-Ray Documentation", CM_HELPPOVRAY
+  MENUITEM "Bug &Reporting", CM_HELPBUGS
+  MENUITEM "&Using Help", CM_HELPUSING_HELP
+  MENUITEM "Show &Tip", CM_SHOWNEXTTIP
+  MENUITEM SEPARATOR
+  MENUITEM "GO POVRAY", CM_GOPOVRAY
+  MENUITEM "Go to the POVRAY Web Site", CM_GOPOVRAYORG
+  MENUITEM "How to &join Compuserve (POVRAY forum)", CM_HELPCOMPUSERVE
+  MENUITEM SEPARATOR
+  MENUITEM "&Books on POV-Ray", CM_HELPBOOKS
+  MENUITEM "The POV-Ray C&DROM", CM_HELPCDROM
+  MENUITEM SEPARATOR
+  MENUITEM "POV-Ray &Legal Statement", CM_POVLEGAL
+  MENUITEM "&About POV-Ray for Windows ...\tAlt+B", CM_HELPABOUT
+ }
+
+}
+
